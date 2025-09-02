@@ -4,7 +4,7 @@ int main(){
     char estado1, estado2;
     char cod1[4], cod2[4];
     char cidade1[20], cidade2[20];
-    int  pontot1, pontot2;
+    int  pontot1, pontot2, combate ;
     float area1, area2, pib1, pib2;
     float percapita1, percapita2;
     float densidade1, densidade2;
@@ -76,46 +76,88 @@ int main(){
     superpoderA = (float) pop1 + area1 + pib1 + pontot1 + percapita1 + ( 1 / densidade1);
     superpoderB =(float) pop2 + area2 + pib2 + pontot2 + percapita2 + ( 1 / densidade2);
 
-    printf("SE O RESULTADO FOR '1' A CARTA 1 VENCEU SE FOR '0' A CARTA 2 VENCEU.\n\n");
+    printf("ESCOLHA QUAL MODALIDADE VOCE QUER O ENFRENTAMENTO: \n");
+    printf("1. polulação\n");
+    printf("2. Area\n");
+    printf("3. PIB\n");
+    printf("4. Pontos turisticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. PIB per capita\n");
+    printf("7. Super Poder\n");
 
 
 
-    if (pop1 > pop2){
+
+      scanf("%d", &combate);
+
+    //printf("SE O RESULTADO FOR '1' A CARTA 1 VENCEU SE FOR '0' A CARTA 2 VENCEU.\n\n");
+
+  switch(combate){
+
+  case 1:
+    
+   if (pop1 > pop2){
         printf("População: CARTA 1 VENCEU!!!\n");}
-     else {
+     else if (pop1 < pop2){
       printf("População: CARTA 2 VENCEU!!!\n");}
-
+     else {
+      printf("População: EMPATE\n");
+     } 
+     break;
+    
+  case 2: 
+  
     if (area1 > area2){
         printf("Area: CARTA 1 VENCEU!!!\n");}
-     else {
+     else if (area1 < area2){
       printf("Area: CARTA 2 VENCEU!!!\n");}
-    
+    else{
+      printf("Area: EMPATE\n");
+    }
+  break;
+  
+
+  case 3:
     if (pib1 > pib2){
         printf("PIB: CARTA 1 VENCEU!!!\n");}
-     else {
+     else if(pib1 < pib2) {
       printf("PIB: CARTA 2 VENCEU!!!\n");}
+      else {printf("PIB: EMPATE");}
+  break;
 
+  case 4:
     if (pontot1 > pontot2){
         printf("Pontos Turisticos: CARTA 1 VENCEU!!!\n");}
-     else {
+     else if (pontot1 < pontot2){
       printf("Pontos Turisticos: CARTA 2 VENCEU!!!\n");}
+     else {printf("Pontos Turisticos: EMPATE");} 
 
+    break;
+
+  case 5:
     if (densidade1 < densidade2){
         printf("Densidade Populacional: CARTA 1 VENCEU!!!\n");}
-     else {
+     else if (densidade1 > densidade2) {
       printf("Densidade Populacional: CARTA 2 VENCEU!!!\n");}
-    
+      else {printf("Densidade Populacional: EMPATE");}
+  break;
+  case 6:  
     if (percapita1 > percapita2){
         printf("PIB per capita: CARTA 1 VENCEU!!!\n");}
-     else {
+     else if (percapita1 < percapita2){
       printf("PIB per capita: CARTA 2 VENCEU!!!\n");}
+      else{printf("PIB per capita: EMPATE");}
+  break;
     
     if (superpoderA > superpoderB){
         printf("Super Poder: CARTA 1 VENCEU!!!\n");}
-     else {
+     else if(superpoderA < superpoderB){
       printf("Super Poder: CARTA 2 VENCEU!!!\n");}
+      else{printf("Super Poder: EMPATE");}
     
+     
+  }
+      return 0;
+    }
 
-     return 0;
-}
 
