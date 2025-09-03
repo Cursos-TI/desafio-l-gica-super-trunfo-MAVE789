@@ -4,7 +4,7 @@ int main(){
     char estado1, estado2;
     char cod1[4], cod2[4];
     char cidade1[20], cidade2[20];
-    int  pontot1, pontot2, combate ;
+    int  pontot1, pontot2, combate;
     float area1, area2, pib1, pib2;
     float percapita1, percapita2;
     float densidade1, densidade2;
@@ -28,6 +28,7 @@ int main(){
     scanf("%d", &pontot1);
     densidade1 = (float) pop1 / area1;
     percapita1 = (float) (pib1 / pop1) * 1000000000;
+    
 
     //CARTA 2
     printf("digite o estado da carta 2 estado: ");
@@ -53,19 +54,20 @@ int main(){
     printf("Estado: %c \n", estado1);
     printf("Codigo: %c%s\n",estado1,cod1);
     printf("Nome da cidade: %s\n",cidade1);
-    printf("População: %lu\n",pop1);
+    pop1 <= 0 ? printf("População: ###ERRO POPULAÇÃO NAO PODE SER MENOR QUE ZERO###\n") : ("População: %lu\n",pop1);
     printf("Area: %.2f Km2 \n",area1);
     printf("PIB : %.2f Bilhões de Reais \n",pib1);
     printf("Pontos turisticos: %d \n",pontot1);
     printf("Densidade populacional: %.2f \n",densidade1);
     printf("PIB per capita: R$%.2f \n",percapita1);
 
+
     //APRESENTAÇÃO DA CARTA 2
     printf("\n\nCARTA 2:\n");
     printf("Estado: %c \n", estado2);
     printf("Codigo: %c%s\n",estado2,cod2);
     printf("Nome da cidade: %s\n",cidade2);
-    printf("População: %lu\n",pop2);
+    pop2 <= 0 ? printf("População: ###ERRO POPULAÇÃO NAO PODE SER MENOR QUE ZERO###\n\n") : printf("População: %lu\n",pop2);
     printf("Area: %.2f Km2 \n",area2);
     printf("PIB : %.2f Bilhões de Reais \n",pib2);
     printf("Pontos turisticos: %d \n",pontot2);
@@ -84,22 +86,25 @@ int main(){
     printf("5. Densidade Populacional\n");
     printf("6. PIB per capita\n");
     printf("7. Super Poder\n");
-
-
-
-
       scanf("%d", &combate);
+   
 
-    //printf("SE O RESULTADO FOR '1' A CARTA 1 VENCEU SE FOR '0' A CARTA 2 VENCEU.\n\n");
-
+  if((pop1 <=0) || (pop2 <=0) ) {
+    printf("\n##### NãO E POSSIVEL CONTINUAR MOTIVO: POPULAÇÃO MENOR ou IGUAL ZERO ####\n");}
+ 
+ //INICIO DO COMBATE
+    else {
+    
   switch(combate){
 
   case 1:
     
    if (pop1 > pop2){
-        printf("População: CARTA 1 VENCEU!!!\n");}
+        printf("População: CARTA 1 VENCEU!!!\n");
+      }
      else if (pop1 < pop2){
-      printf("População: CARTA 2 VENCEU!!!\n");}
+      printf("População: CARTA 2 VENCEU!!!\n");
+    }
      else {
       printf("População: EMPATE\n");
      } 
@@ -154,10 +159,13 @@ int main(){
      else if(superpoderA < superpoderB){
       printf("Super Poder: CARTA 2 VENCEU!!!\n");}
       else{printf("Super Poder: EMPATE");}
+
+      
     
      
-  }
+  }}
       return 0;
-    }
+    
+}
 
 
